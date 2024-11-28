@@ -1,16 +1,24 @@
 import { Elysia } from "elysia";
 import staticPlugin from "@elysiajs/static";
+import { swagger } from "@elysiajs/swagger";
 import { resolve } from "path";
 import connectDatabase from "./libs/mongoose/connectDatabase";
 
 connectDatabase();
 
+const api = new Elysia({ prefix: "/api" })
+  .get("/", () => "test api")
+
+const CLIENT_PATH = resolve(__dirname, "../../client/dist");
+
 const app = new Elysia()
+  .use(swagger())
   .use(staticPlugin({
-    assets: resolve(__dirname, "../../client/dist"),
+    assets: CLIENT_PATH,
     prefix: "/"
   }))
-  .get("*", () => Bun.file(resolve(__dirname, "../../client/dist/index.html")))
+  .use(api)
+  .get("*", () => Bun.file(`${CLIENT_PATH}/index.html`))
   .listen(3000)
 ;
 
