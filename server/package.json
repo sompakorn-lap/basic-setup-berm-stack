@@ -8,7 +8,9 @@
     "start": "./server"
   },
   "dependencies": {
-    "elysia": "latest"
+    "@elysiajs/static": "^1.1.1",
+    "elysia": "latest",
+    "mongoose": "^8.8.3"
   },
   "devDependencies": {
     "bun-types": "latest"
