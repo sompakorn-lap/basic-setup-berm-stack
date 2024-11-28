@@ -1,20 +1,12 @@
-import { useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HomePage from "./Home.page";
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  return (
-    <div className="p-2">
-      <h1>App</h1>
-
-      <button
-        className="px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
-        onClick={() => setCount(count + 1)}
-      >
-        count: {count}
-      </button>
-    </div>
-  );
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<HomePage/>} />
+    </Routes>
+  </BrowserRouter>
 }
 
 export default App
