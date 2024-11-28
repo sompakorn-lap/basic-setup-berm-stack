@@ -1,7 +1,12 @@
 import { Elysia } from "elysia";
+import staticPlugin from "@elysiajs/static";
 
 const app = new Elysia()
-  .get("/", () => "Hello Elysia")
+  .use(staticPlugin({
+    assets: "../client/dist",
+    prefix: "/"
+  }))
+  .get("*", () => Bun.file("../client/dist/index.html"))
   .listen(3000)
 ;
 
