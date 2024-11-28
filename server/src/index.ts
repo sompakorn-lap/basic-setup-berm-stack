@@ -1,6 +1,9 @@
 import { Elysia } from "elysia";
 import staticPlugin from "@elysiajs/static";
 import { resolve } from "path";
+import connectDatabase from "./libs/mongoose/connectDatabase";
+
+connectDatabase();
 
 const app = new Elysia()
   .use(staticPlugin({
