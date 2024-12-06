@@ -3,11 +3,10 @@ import staticPlugin from "@elysiajs/static";
 import { swagger } from "@elysiajs/swagger";
 import { resolve } from "path";
 import connectDatabase from "./libs/mongoose/connectDatabase";
+import api from "./api";
 
 connectDatabase();
 
-const api = new Elysia({ prefix: "/api" })
-  .get("/", () => "test api")
 
 const CLIENT_PATH = resolve(__dirname, "../../client/dist");
 
