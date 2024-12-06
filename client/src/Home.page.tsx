@@ -4,7 +4,8 @@ function HomePage() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className="p-2">
+    <section>
+      
       <h1>App</h1>
 
       <button
@@ -13,7 +14,8 @@ function HomePage() {
       >
         count: {count}
       </button>
-    </div>
+
+    </section>
   );
 }
 

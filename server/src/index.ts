@@ -7,7 +7,6 @@ import api from "./api";
 
 connectDatabase();
 
-
 const CLIENT_PATH = resolve(__dirname, "../../client/dist");
 
 const app = new Elysia()
