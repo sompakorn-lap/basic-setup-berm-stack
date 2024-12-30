@@ -13,8 +13,8 @@ function App() {
       <main className="p-2">
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<HomePage/>} />
-            <Route path="/1" element={<h1>Test</h1>} />
+              <Route path="/" element={<HomePage/>} />
+              <Route path="/1" element={<h1>Test</h1>} />
           </Routes>
         </BrowserRouter>
       </main>

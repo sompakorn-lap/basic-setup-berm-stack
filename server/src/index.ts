@@ -1,23 +1,19 @@
 import { Elysia } from "elysia";
-import staticPlugin from "@elysiajs/static";
-import { swagger } from "@elysiajs/swagger";
-import { resolve } from "path";
 import connectDatabase from "./libs/mongoose/connectDatabase";
+import client from "./client";
 import api from "./api";
+import swagger from "@elysiajs/swagger";
+
+const PORT = parseInt(process.env.PORT as string) || 3000;
 
 connectDatabase();
-
-const CLIENT_PATH = resolve(__dirname, "../../client/dist");
-
 const app = new Elysia()
-  .use(swagger())
-  .use(staticPlugin({
-    assets: CLIENT_PATH,
-    prefix: "/"
-  }))
+  .use(client)
   .use(api)
-  .get("*", () => Bun.file(`${CLIENT_PATH}/index.html`))
-  .listen(3000)
+  .use(swagger({
+    path: "/docs"
+  }))
+  .listen(PORT)
 ;
 
 console.log(`running at ${app.server?.hostname}:${app.server?.port}`);
