@@ -5,7 +5,7 @@
     "license": "ISC",
     "description": "Basic setup BERM stack (bun, elysia, react, mongodb) for deploy on render.com",
     "scripts": {
-      "start": "cd server && bun start",
+      "start": "cd server && ./server",
       "build:server": "cd server && bun i && bun run build",
       "build:client": "cd client && bun i && bun run build",
       "build": "bun run build:server && bun run build:client"
