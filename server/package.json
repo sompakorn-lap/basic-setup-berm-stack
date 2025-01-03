@@ -8,6 +8,7 @@
     "start": "./server"
   },
   "dependencies": {
+    "@elysiajs/static": "^1.2.0",
     "@elysiajs/swagger": "^1.1.6",
     "elysia": "latest",
     "mongoose": "^8.8.3"
