@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./Home.page";
 import { Icon } from "@iconify/react";
 import ReactQueryProvider from "./libs/react-query/ReactQueryProvider";
+import UserPage from "./features/user/container/UserPage";
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
           <BrowserRouter>
             <Routes>
                 <Route path="/" element={<HomePage/>} />
-                <Route path="/1" element={<h1>Test</h1>} />
+                <Route path="/user" element={<UserPage/>} />
             </Routes>
           </BrowserRouter>
         </main>
