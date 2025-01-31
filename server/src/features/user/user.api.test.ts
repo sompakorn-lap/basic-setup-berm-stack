@@ -1,6 +1,6 @@
 import { describe, expect, it } from "bun:test";
 import userApi from "./user.api";
-import { getTestUrl } from "../../libs/test/utils";
+import { getTestUrl } from "@/libs/test/utils";
 
 const testUrl = getTestUrl(userApi);
 
