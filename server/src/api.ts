@@ -1,5 +1,5 @@
 import Elysia from "elysia";
-import userApi from "./features/user/api";
+import userApi from "./features/user/user.api";
 
 const api = new Elysia({ prefix: "/api" })
   .use(userApi)

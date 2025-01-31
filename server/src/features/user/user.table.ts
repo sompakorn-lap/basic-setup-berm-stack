@@ -4,7 +4,6 @@ import { v4 as uuidv4 } from "uuid";
 const userTable = model("user", new Schema({
   userId: {
     type: String,
-    index: true,
     default: uuidv4
   },
   name: {
