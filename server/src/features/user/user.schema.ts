@@ -7,8 +7,11 @@ const userSchema = t.Object({
   email: t.String({ format: "email" })
 });
 
-export const userInsertSchema = t.Omit(userSchema, ["userId"]);
-export type userInsertType = typeof userInsertSchema.static;
+export const selectUserSchema = t.Partial(userSchema);
+export type SelectUserType = typeof selectUserSchema.static;
 
-export const userUpdateSchema = t.Partial(userInsertSchema);
-export type userUpdateType = typeof userUpdateSchema.static;
+export const createUserSchema = t.Omit(userSchema, ["userId"]);
+export type CreateUserType = typeof createUserSchema.static;
+
+export const updateUserSchema = t.Partial(createUserSchema);
+export type UpdateUserType = typeof updateUserSchema.static;

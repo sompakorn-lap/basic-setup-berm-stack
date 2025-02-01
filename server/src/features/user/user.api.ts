@@ -1,11 +1,11 @@
 import Elysia from "elysia";
-import { userInsertSchema, userUpdateSchema } from "./user.schema";
-import userTable from "./user.table";
+import UserService from "./user.service";
+import { createUserSchema, updateUserSchema } from "./user.schema";
 
 const userApi = new Elysia({ prefix: "/user" })
-  .get("/", () => userTable.find().lean().exec())
+  .get("/", () => UserService.gets())
   .get("/:userId", async ({ params: { userId }, error }) => {
-    const user = await userTable.findOne({ userId }).lean().exec();
+    const user = await UserService.getByUserId(userId);
     if (!user) return error("Not Found");
     return user;
   })
@@ -13,33 +13,31 @@ const userApi = new Elysia({ prefix: "/user" })
     "/",
     async ({ body, error }) => {
       const { email } = body;
-      const duplicate = await userTable.findOne({ email }).lean().exec();
+      const duplicate = await UserService.get({ email });
       if (duplicate) return error("Conflict");
 
-      const user = await userTable.create(body);
-      return user.toJSON();
+      const user = await UserService.create(body);
+      return user;
     },
     {
-      body: userInsertSchema,
+      body: createUserSchema,
     }
   )
   .delete("/:userId", ({ params: { userId } }) =>
-    userTable.findOneAndDelete({ userId }).lean().exec()
+    UserService.deleteByUserId(userId)
   )
   .patch(
     "/:userId",
     async ({ body, params: { userId }, error }) => {
-      const available = await userTable.findOne({ userId }).lean().exec();
+      const available = await UserService.getByUserId(userId);
       if (!available) return error("Not Found");
 
-      const user = await userTable
-        .findOneAndUpdate({ userId }, body, { new: true })
-        .lean()
-        .exec();
+      const user = await UserService.updateByUserId(userId, body);
       return user;
     },
     {
-      body: userUpdateSchema,
+      body: updateUserSchema,
     }
   );
+
 export default userApi;
