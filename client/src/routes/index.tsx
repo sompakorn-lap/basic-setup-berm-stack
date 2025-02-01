@@ -1,12 +1,16 @@
 import { useState } from "react";
-import ReactIcon from "./assets/react.svg";
+import ReactIcon from "../assets/react.svg";
+import { createFileRoute } from "@tanstack/react-router";
+
+export const Route = createFileRoute("/")({
+  component: HomePage,
+});
 
 function HomePage() {
   const [count, setCount] = useState(0);
 
   return (
     <section>
-      
       <h1>App1</h1>
 
       <img src={ReactIcon} />
@@ -17,9 +21,6 @@ function HomePage() {
       >
         count: {count}
       </button>
-
     </section>
   );
 }
-
-export default HomePage;

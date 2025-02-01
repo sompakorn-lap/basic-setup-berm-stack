@@ -3,11 +3,11 @@ import { ReactNode } from "react";
 
 const queryClient = new QueryClient();
 
-type ReactQueryProviderPropsType = {
+type TanstackQueryProviderPropsType = {
   children: ReactNode
 };
 
-function ReactQueryProvider({ children }: ReactQueryProviderPropsType) {
+function TanstackQueryProvider({ children }: TanstackQueryProviderPropsType) {
   return (
     <QueryClientProvider client={queryClient}>
       {children}
@@ -15,4 +15,4 @@ function ReactQueryProvider({ children }: ReactQueryProviderPropsType) {
   );
 }
 
-export default ReactQueryProvider;
+export default TanstackQueryProvider;
