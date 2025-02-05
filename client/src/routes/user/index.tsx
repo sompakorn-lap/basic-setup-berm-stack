@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useUsers } from "@/features/user/hooks";
+import { useUsers } from "@/features/user/hook";
 import UserList from "@/features/user/UserList";
 
 export const Route = createFileRoute("/user/")({
