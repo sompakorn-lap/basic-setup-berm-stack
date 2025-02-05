@@ -117,5 +117,5 @@ A collection of reusable utilities, middleware, and helper functions for the app
 
 ## Elysia plugins
 
-- **@elysiajs/static** - This plugin can serve static files/folders for Elysia Server.
-- **@elysiajs/swagger** - This plugin generates a Swagger endpoint for an Elysia server.
+- [**@elysiajs/static**](https://elysiajs.com/plugins/static.html) - This plugin can serve static files/folders for Elysia Server.
+- [**@elysiajs/swagger**](https://elysiajs.com/plugins/swagger.html) - This plugin generates a Swagger endpoint for an Elysia server.
