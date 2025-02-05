@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useUsers } from "@/features/user/logic/hooks";
-import UserList from "@/features/user/view/UserList";
+import { useUsers } from "@/features/user/hooks";
+import UserList from "@/features/user/UserList";
 
 export const Route = createFileRoute("/user/")({
   component: Page,
