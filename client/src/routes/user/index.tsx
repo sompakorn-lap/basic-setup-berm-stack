@@ -7,15 +7,15 @@ export const Route = createFileRoute("/user/")({
 });
 
 function Page() {
+  const { data: users, isLoading, error } = useUsers();
 
-  const { data: users } = useUsers();
+  if (error) return <h1>ERROR</h1>;
 
-  if(!users)
-    return null;
+  if (isLoading) return <h1>LOADING...</h1>;
 
   return (
     <section>
-      <UserList users={users}/>
+      <UserList users={users} />
     </section>
   );
 }

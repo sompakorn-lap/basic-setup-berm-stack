@@ -1,13 +1,13 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import TanstackQueryProvider from "./libs/tanstack-query/TanstackQueryProvider";
-import TanstackRouterProvider from "./libs/tanstack-router/TanstackRouterProvider";
+import ReactQueryProvider from "@/libs/tanstack/react-query/provider";
+import ReactRouterProvider from "@/libs/tanstack/react-router/provider";
 import "./index.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <TanstackQueryProvider>
-      <TanstackRouterProvider />
-    </TanstackQueryProvider>
+    <ReactQueryProvider>
+      <ReactRouterProvider />
+    </ReactQueryProvider>
   </StrictMode>
 );

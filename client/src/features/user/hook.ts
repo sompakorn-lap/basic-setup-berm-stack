@@ -1,12 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
-export function useUsers(){
+export function useUsers() {
   return useQuery({
     queryKey: ["user"],
-    queryFn: async () => {
-      const res = await axios.get("/api/user");
-      return res.data;
-    }
+    queryFn: () => axios.get("/api/user/notfound").then((res) => res.data),
+    retry: false
   });
 }
