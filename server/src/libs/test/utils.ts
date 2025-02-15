@@ -1,17 +1,22 @@
 import Elysia from "elysia";
 
+type Path = `/${string}`;
+
 export class Tester<T extends string> {
   private controller: Elysia<T>;
-  private prefix: string;
+  private baseURL: string;
 
   constructor(controller: Elysia<T>) {
     this.controller = controller;
-    this.prefix = controller.config.prefix || "";
+    this.baseURL = `http://localhost${controller.config.prefix || ""}`;
   }
 
-  fetch(path: `/${string}`, init?: RequestInit) {
+  fetch(path: Path, options?: RequestInit) {
     return this.controller.handle(
-      new Request(`http://localhost${this.prefix}${path}`, init)
+      new Request(`${this.baseURL}${path}`, {
+        headers: { "content-type": "application/json" },
+        ...options,
+      })
     );
   }
 }

@@ -66,9 +66,7 @@ describe("update user", () => {
       .fetch("/notfound", {
         method: "PATCH",
         body: JSON.stringify(mockUpdate),
-        headers: {
-          "content-type": "application/json",
-        },
+        headers: { "content-type": "application/json" },
       })
       .then((res) => res.text());
 
@@ -80,9 +78,7 @@ describe("update user", () => {
       .fetch(`/${userId}`, {
         method: "PATCH",
         body: JSON.stringify(mockUpdate),
-        headers: {
-          "content-type": "application/json",
-        },
+        headers: { "content-type": "application/json" },
       })
       .then((res) => res.json());
 
@@ -93,9 +89,7 @@ describe("update user", () => {
 describe("delete user", () => {
   it("should successful", async () => {
     const response = await tester
-      .fetch(`/${userId}`, {
-        method: "DELETE",
-      })
+      .fetch(`/${userId}`, { method: "DELETE" })
       .then((res) => res.json());
   });
 });
