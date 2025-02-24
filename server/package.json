@@ -15,7 +15,7 @@
     "uuid": "^11.0.5"
   },
   "devDependencies": {
-    "bun-types": "latest"
+    "@types/bun": "^1.2.3"
   },
   "module": "src/index.js"
 }
