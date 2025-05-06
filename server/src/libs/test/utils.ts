@@ -13,10 +13,7 @@ export class Tester<T extends string> {
 
   fetch(path: Path, options?: RequestInit) {
     return this.controller.handle(
-      new Request(`${this.baseURL}${path}`, {
-        headers: { "content-type": "application/json" },
-        ...options,
-      })
+      new Request(`${this.baseURL}${path}`, options)
     );
   }
 }
