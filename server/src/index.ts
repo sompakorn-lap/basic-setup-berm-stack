@@ -1,4 +1,4 @@
-import { Elysia } from "elysia";
+import { Elysia, file } from "elysia";
 import connectDatabase from "./libs/mongoose/connectDatabase";
 import api from "./api";
 import swagger from "@elysiajs/swagger";
@@ -12,7 +12,7 @@ const app = new Elysia()
     assets: "../client/dist",
     prefix: "/static"
   }))
-  .get("*", () => Bun.file("../client/dist/index.html"))
+  .get("*", () => file("../client/dist/index.html"))
   .use(api)
   .use(swagger({
     path: "/docs"

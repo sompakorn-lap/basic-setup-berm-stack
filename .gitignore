@@ -134,6 +134,7 @@ dist
 
 # bun
 bun.lockb
+bun.lock
 
 # bun-build
 *.bun-build
