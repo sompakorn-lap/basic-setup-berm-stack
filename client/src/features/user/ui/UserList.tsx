@@ -1,4 +1,4 @@
-import { UserType } from "./schema";
+import { UserType } from "../logic/schema";
 
 type UserListPropsType = {
   users: UserType[]

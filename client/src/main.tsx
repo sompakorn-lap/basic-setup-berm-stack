@@ -1,12 +1,12 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import ReactQueryProvider from "@/libs/tanstack/react-query/provider";
-import ReactRouterProvider from "@/libs/tanstack/react-router/provider";
+import QueryProvider from "@/libs/tanstack/QueryProvider";
+import RouterProvider from "@/libs/tanstack/RouterProvider";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <ReactQueryProvider>
-      <ReactRouterProvider />
-    </ReactQueryProvider>
+    <QueryProvider>
+      <RouterProvider/>
+    </QueryProvider>
   </StrictMode>
 );
